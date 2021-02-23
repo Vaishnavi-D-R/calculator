@@ -4,9 +4,10 @@ package com.mindtree.ArithmeticOperations;
 	import org.junit.Test; 
 	import org.junit.Assert; 
 	import org.junit.Before;
-
+*/
 	public class ArithmeticOperationsTest extends Exception{
-	private App objCalcUnderTest;
+
+/*	private App objCalcUnderTest;
 
 	@Before
 	public void setUp() {
