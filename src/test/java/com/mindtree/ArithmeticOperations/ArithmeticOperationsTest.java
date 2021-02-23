@@ -1,6 +1,6 @@
 package com.mindtree.ArithmeticOperations;
 
-	import com.mindtree.ArithmeticOperations.App;
+/*	import com.mindtree.ArithmeticOperations.App;
 	import org.junit.Test; 
 	import org.junit.Assert; 
 	import org.junit.Before;
@@ -52,5 +52,5 @@ package com.mindtree.ArithmeticOperations;
 	public void testDivideByZero() { 
 	int a = 15; int b = 0;
 	objCalcUnderTest.divide(a, b);
-	} 
+	} */
 	}
