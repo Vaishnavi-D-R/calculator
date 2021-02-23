@@ -1,0 +1,55 @@
+pipeline {
+    agent any
+    tools{
+        maven 'MAVEN-3.6.3'
+        jdk 'JDK 15'
+    }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'mvn -B -DskipTests clean package'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
+        }
+        stage("build & SonarQube analysis") {
+            agent any
+            steps {
+              withSonarQubeEnv('sonar-server') {
+                sh 'mvn clean package sonar:sonar'
+              }
+            }
+          }
+      stage('collect artifact'){
+           steps{
+               archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
+           }
+        }
+        stage('deploy to artifactory')
+           {
+              steps{
+                    rtUpload (
+                        serverId: 'ARTIFACTORY_SERVER',
+                            spec: '''{
+                                "files": [
+                                {
+                                    "pattern": "target/*.jar",
+                                    "target": "art-doc2-dev-loc"
+                                }
+                                ]
+                            }''',
+                buildName: 'holyFrog',
+                buildNumber: '42'
+                )
+            }
+           }
+    }
+}
