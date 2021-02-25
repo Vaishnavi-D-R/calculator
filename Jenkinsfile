@@ -75,7 +75,7 @@ pipeline {
                     "files": [
                          {
                              "pattern": "art-doc2-dev-loc/sample/",
-                             "target": "snapshots/"
+                             "target": "calculator-pipeline/"
                         }
                      ]
                      }''',
