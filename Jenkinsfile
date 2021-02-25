@@ -86,7 +86,7 @@ pipeline {
               }
            }
         
-         stage('download from artifactory')
+         stage('upload to aws')
            {
               steps{
           sshagent(['ffbe717e-6e85-42e6-968c-0a3cd1c22199']){
