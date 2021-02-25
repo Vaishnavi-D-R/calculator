@@ -66,7 +66,10 @@ pipeline {
                 )
             }
            }
-        rtDownload (
+         stage('download from artifactory')
+           {
+              steps{
+                    rtDownload (
                     serverId: 'JfrogId',
                     spec: '''{
                     "files": [
@@ -75,13 +78,13 @@ pipeline {
                              "target": "snapshots/"
                         }
                      ]
-                }''',
+                     }''',
  
-  
-    buildName: 'holyFrog',
-    buildNumber: '42'
-)
-
+                    buildName: 'holyFrog',
+                    buildNumber: '42'
+                )
+              }
+           }
         
         
     }
