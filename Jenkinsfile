@@ -57,7 +57,7 @@ pipeline {
                                 "files": [
                                 {
                                     "pattern": "target/*.jar",
-                                    "target": "art-doc2-dev-loc"
+                                    "target": "art-doc2-dev-loc/sample/"
                                 }
                                 ]
                             }''',
@@ -66,5 +66,23 @@ pipeline {
                 )
             }
            }
+        rtDownload (
+                    serverId: 'JfrogId',
+                    spec: '''{
+                    "files": [
+                         {
+                             "pattern": "art-doc2-dev-loc-new/sample/",
+                             "target": "snapshots/"
+                        }
+                     ]
+                }''',
+ 
+  
+    buildName: 'holyFrog',
+    buildNumber: '42'
+)
+
+        
+        
     }
 }
