@@ -57,7 +57,7 @@ pipeline {
                                 "files": [
                                 {
                                     "pattern": "target/*.jar",
-                                    "target": "art-doc2-dev-loc/sample/"
+                                    "target": "art-doc2-dev-loc/"
                                 }
                                 ]
                             }''',
@@ -74,7 +74,7 @@ pipeline {
                     spec: '''{
                     "files": [
                          {
-                             "pattern": "art-doc2-dev-loc-new/sample/",
+                             "pattern": "art-doc2-dev-loc/",
                              "target": "snapshots/"
                         }
                      ]
