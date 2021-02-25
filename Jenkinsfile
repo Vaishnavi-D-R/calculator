@@ -28,12 +28,27 @@ pipeline {
               }
             }
           }
+        stage("Quality gate") {
+            steps {
+                waitForQualityGate abortPipeline: true
+            }
+            post{
+                success{
+                    echo "========Deploying executed successfully========"
+                    mail bcc: '', body: 'deploying is sucesfull', cc: '', from: '', replyTo: '', subject: 'deployed', to: 'vaishnavidr123@gmail.com'
+                }
+                failure{
+                 echo "========Deploying failed========"
+                 mail bcc: '', body: 'deploying failed', cc: '', from: '', replyTo: '', subject: 'deployed', to: 'vaishnavidr123@gmail.com'
+                }
+            }
+        }
       stage('collect artifact'){
            steps{
                archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
            }
         }
-        stage('deploy to artifactory')
+           stage('deploy to artifactory')
            {
               steps{
                     rtUpload (
