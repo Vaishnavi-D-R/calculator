@@ -90,8 +90,8 @@ pipeline {
            {
               steps{
           sshagent(['513fbce6-0f7a-4bc0-8cd9-66f09ab7ab56']){
-                  //  sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.188.46.199 pwd'
-                    sh 'scp -r C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/calculator-pipeline/target/*.jar ubuntu@ec2-52-25-51-185.us-west-2.compute.amazonaws.com:/home/ubuntu/artifacts'
+                   sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.25.51.185 pwd'
+                //    sh 'scp -r C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins\.jenkins\workspace\calculator-pipeline\target\*.jar ubuntu@ec2-52-25-51-185.us-west-2.compute.amazonaws.com:/home/ubuntu/artifacts'
         }
               }
            }
