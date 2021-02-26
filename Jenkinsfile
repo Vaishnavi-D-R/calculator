@@ -75,7 +75,7 @@ pipeline {
                     "files": [
                          {
                              "pattern": "art-doc2-dev-loc/sample/",
-                             "target": "/"
+                             "target": "src/"
                         }
                      ]
                      }''',
@@ -90,7 +90,7 @@ pipeline {
            {
               steps{
           sshagent(['ffbe717e-6e85-42e6-968c-0a3cd1c22199']){
-                    sh 'scp -r C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/calculator-pipeline/target/*.jar ubuntu@54.188.46.199:/home/ubuntu/artifacts'
+                    sh 'scp -r C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/calculator-pipeline/target/*.jar ubuntu@34.219.112.154:/home/ubuntu/artifacts'
         }
               }
            }
