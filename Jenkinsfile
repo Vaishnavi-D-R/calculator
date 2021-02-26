@@ -89,8 +89,8 @@ pipeline {
          stage('upload to aws')
            {
               steps{
-          sshagent(['ffbe717e-6e85-42e6-968c-0a3cd1c22199']){
-                    sh 'scp -r C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/calculator-pipeline/target/*.jar ubuntu@34.219.112.154:/home/ubuntu/artifacts'
+          sshagent(['513fbce6-0f7a-4bc0-8cd9-66f09ab7ab56']){
+                    sh 'scp -r C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/calculator-pipeline/target/*.jar ubuntu@52.25.51.185:/home/ubuntu/artifacts'
         }
               }
            }
