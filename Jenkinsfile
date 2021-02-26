@@ -70,7 +70,7 @@ pipeline {
            {
               steps{
                     rtDownload (
-                    serverId: 'JfrogId',
+                    serverId: 'ARTIFACTORY_SERVER',
                     spec: '''{
                     "files": [
                          {
