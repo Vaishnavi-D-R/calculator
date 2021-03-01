@@ -86,15 +86,22 @@ pipeline {
               }
            }
         
-         stage('upload to aws')
+         stage('upload to ec2')
            {
               steps{
           sshagent(['513fbce6-0f7a-4bc0-8cd9-66f09ab7ab56']){
                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.25.51.185 pwd'
                    sh 'scp -r C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/calculator-pipeline/target/*.jar ubuntu@52.25.51.185:/home/ubuntu/artifacts'
-        }
+                     }
               }
            }
-        
+         stage('upload to s3')
+           {
+              steps{
+        withAWS(region:'us-west-2',credentials:'85aff390-c4e1-4aa6-a350-e8586ec1803c') {
+                    s3Upload(file:'artifacts/mindsapp/', bucket:'vaishnavidrbucket', path:'artifacts/')
+        }
+              }
+        }
     }
 }
